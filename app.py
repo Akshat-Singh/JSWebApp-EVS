@@ -9,6 +9,8 @@ app = Flask(__name__)
 def hello():
     return flask.render_template('Homepage.html')
 
+def notHello():
+    return flask.render_template('Homepage.html')
 
 if __name__ == '__main__':
     app.run()
