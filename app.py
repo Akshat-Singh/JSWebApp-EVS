@@ -1,16 +1,16 @@
-from flask import Flask
 import flask
-import time
+import sqlite3
+import secondaries
+from werkzeug.security import generate_password_hash, check_password_hash
 
-app = Flask(__name__)
+app = flask.Flask(__name__)
 
 
-@app.route('/')
-def hello():
-    return flask.render_template('Homepage.html')
+@app.route('/', methods=['GET', 'POST'])
+def HelloWorld():
+    operationsPerSecond = secondaries.calculations()
+    return flask.render_template('homepage.html', oPS=operationsPerSecond)
 
-def notHello():
-    return flask.render_template('Homepage.html')
 
 if __name__ == '__main__':
     app.run()

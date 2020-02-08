@@ -1,11 +1,9 @@
 import time
 
-def only():
+
+def calculations():
     startTime = time.time()
     number = 0
-    while time.time() - startTime <= 45.6:
+    while time.time() - startTime <= 1.0:
         number = number + 1
-    print(f"{number}\n{time.time() - startTime}")
-
-
-only()  
+    return number
