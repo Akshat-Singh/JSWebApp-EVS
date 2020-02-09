@@ -49,15 +49,20 @@
             //var obj = document.getElementById()
         }
         function executeStopwatch(){
-            let ms = 0, s = 0, m = 0, timer;
+            let ms = 0, s = 0, m = 0, timer, flag = 1;
             let stopwatchEl = document.querySelector('.stopwatch');
             start();
             function start(){
                 timer = setInterval(run, 10);
             }
             function run(){
+                let totalTime = 0;
+                if (m === 45 && s === 6){
+                    alert("Recognize the excess time");
+                }
                 stopwatchEl.textContent = (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s) + ":" + (ms < 10 ? "0" + ms : ms);
                 ms++;
+                totalTime++;
                 if (ms === 100){
                     ms = 0;
                     s++;
@@ -65,6 +70,16 @@
                 if (s === 60){
                     s = 0;
                     m++;
+                }
+                if (s === 45 && ms === 60) {
+                    clearInterval(timer);
+                }
+            }
+            
+            function counter(){
+                let calculations = 0;
+                while (flag === 1){
+                    calculations = calculations + 1;
                 }
             }
         }
