@@ -146,14 +146,16 @@ body
 
 .earthText
 {
+   text-align: center;
    position: absolute;
-   left: 10%;
-   top: 12%;
+   left: 12%;
+   top: 17.5%;
 }
 
 .calcsText
 {
+   text-align: center;
    position: absolute;
-   left: 77.5%;
-   top: 12%
+   left: 78%;
+   top: 17.5%
 }

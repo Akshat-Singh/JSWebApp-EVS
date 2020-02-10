@@ -43,12 +43,12 @@
         <div class="earthAge" id="earthAge">
             0
         </div>
-        <p class="count-text" id="earthText">The Age of Earth in Years</p>
+        <div class="earthText" id="earthText">The Age of Earth in Years</div>
 
         <div class="calcs" id="calcs">
             0
         </div>
-         <p class="count-text" id="calcsText">Calculations made by Python hitherto</p>
+        <div class="calcsText" id="calcsText">Calculations made by Python hitherto</div>
 
 
         <button id="button1" class="button1" onclick="transitioner();">Visualize</button>
@@ -73,7 +73,7 @@
             let stopwatchEl = document.querySelector('.stopwatch');
             let Cpp = parseInt(document.getElementById("h2c2").getAttribute("data-to"), 10);
             let planet = document.getElementById("earthAge");
-            let currNum = document.getElementById("calcs")
+            let currNum = document.getElementById("calcs");
             start();
 
             function start() {
@@ -97,7 +97,6 @@
                 }
                 if (s === 45 && ms === 60) {
                     clearInterval(timer);
-                    alert(calculations);
                 }
             }
         }
