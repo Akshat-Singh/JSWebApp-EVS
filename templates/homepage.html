@@ -50,16 +50,99 @@
         </div>
         <div class="calcsText" id="calcsText">Calculations made by Python hitherto</div>
 
+        <div class="superset" id="superset">
+            <div class="I-i" id="I-i">The Earth was formed</div>
+            <div class="I-ii" id="I-ii"></div>
+            <div class="I-iii" id="I-iii"></div>
+            <br>
+            <div class="II-i" id="II-i">Our Moon was formed</div>
+            <div class="II-ii" i d="II-ii"></div>
+            <div class="II-iii" id="II-iii"></div>
+            <br>
+            <div class="III-i" id="III-i">The oldest rock</div>
+            <div class="III-ii" id="III-ii"></div>
+            <div class="III-iii" id="III-iii"></div>
+            <br>
+            <div class="IV-i" id="IV-i">The oldest confirmed fossil evidence of life</div>
+            <div class="IV-ii" id="IV-ii"></div>
+            <div class="IV-iii" id="IV-iii"></div>
+            <br>
+            <div class="V-i" id="V-i">Rise of Oxygen in the atmosphere</div>
+            <div class="V-ii" id="V-ii"></div>
+            <div class="V-iii" id="V-iii"></div>
+            <br>
+            <div class="VI-i" id="VI-i">Cambrian Explosion of Life</div>
+            <div class="VI-ii" id="VI-ii"></div>
+            <div class="VI-iii" id="VI-iii"></div>
+            <br>
+            <div class="VII-i" id="VII-i">Permo-Triassic Mass Extinction</div>
+            <div class="VII-ii" id="VII-ii"></div>
+            <div class="VII-iii" id="VII-iii"></div>
+            <br>
+            <div class="VIII-i" id="VIII-i">The KT Extinction</div>
+            <div class="VIII-ii" id="VIII-ii"></div>
+            <div class="VIII-iii" id="VIII-iii"></div>
+            <br>
+            <div class="IX-i" id="IX-i">Oldest Human Fossil</div>
+            <div class="IX-ii" id="IX-ii"></div>
+            <div class="IX-iii" id="IX-iii"></div>
+            <br>
+            <div class="X-i" id="X-i">Me!!</div>
+            <div class="X-ii" id="X-ii"></div>
+            <div class="X-iii" id="X-iii"></div>
+        </div>
+
 
         <button id="button1" class="button1" onclick="transitioner();">Visualize</button>
 
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="/__/firebase/7.8.1/firebase-app.js"></script>
 
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="/__/firebase/7.8.1/firebase-analytics.js"></script>
+
+        <!-- Initialize Firebase -->
+        <script src="/__/firebase/init.js"></script>
     </body>
     <script>
         let ms = 0, s = 0, m = 0, timer, calculations = 0, earth = 0;
         function fadersReady(){
             $("#earthAge").fadeOut();
             $("#calcs").fadeOut();
+            $("#calcsText").fadeOut();
+            $("#earthText").fadeOut();
+            $("#I-i").fadeOut();
+            $("#I-ii").fadeOut();
+            $("#I-iii").fadeOut();
+            $("#II-i").fadeOut();
+            $("#II-ii").fadeOut();
+            $("#III-i").fadeOut();
+            $("#III-ii").fadeOut();
+            $("#III-iii").fadeOut();
+            $("#IV-i").fadeOut();
+            $("#IV-ii").fadeOut();
+            $("#IV-iii").fadeOut();
+            $("#V-i").fadeOut();
+            $("#V-ii").fadeOut();
+            $("#V-iii").fadeOut();
+            $("#VI-i").fadeOut();
+            $("#VI-ii").fadeOut();
+            $("#VI-iii").fadeOut();
+            $("#VII-i").fadeOut();
+            $("#VII-ii").fadeOut();
+            $("#VII-iii").fadeOut();
+            $("#VIII-i").fadeOut();
+            $("#VIII-ii").fadeOut();
+            $("#VIII-iii").fadeOut();
+            $("#IX-i").fadeOut();
+            $("#IX-ii").fadeOut();
+            $("#IX-iii").fadeOut();
+            $("#X-i").fadeOut();
+            $("#X-ii").fadeOut();
+            $("#X-iii").fadeOut();
+
+
         }
         function transitioner(){
             executeStopwatch();
@@ -68,6 +151,39 @@
             $("#counter2").fadeOut();
             $("#earthAge").fadeIn();
             $("#calcs").fadeIn();
+            $("#calcsText").fadeIn();
+            $("#earthText").fadeIn();
+            $("#I-i").fadeIn();
+            $("#I-ii").fadeIn();
+            $("#I-iii").fadeIn();
+
+
+            $("#II-i").fadeIn();
+            $("#II-ii").fadeIn();
+            $("#III-i").fadeIn();
+            $("#III-ii").fadeIn();
+            $("#III-iii").fadeIn();
+            $("#IV-i").fadeIn();
+            $("#IV-ii").fadeIn();
+            $("#IV-iii").fadeIn();
+            $("#V-i").fadeIn();
+            $("#V-ii").fadeIn();
+            $("#V-iii").fadeIn();
+            $("#VI-i").fadeIn();
+            $("#VI-ii").fadeIn();
+            $("#VI-iii").fadeIn();
+            $("#VII-i").fadeIn();
+            $("#VII-ii").fadeIn();
+            $("#VII-iii").fadeIn();
+            $("#VIII-i").fadeIn();
+            $("#VIII-ii").fadeIn();
+            $("#VIII-iii").fadeIn();
+            $("#IX-i").fadeIn();
+            $("#IX-ii").fadeIn();
+            $("#IX-iii").fadeIn();
+            $("#X-i").fadeIn();
+            $("#X-ii").fadeIn();
+            $("#X-iii").fadeIn();
         }
         function executeStopwatch() {
             let stopwatchEl = document.querySelector('.stopwatch');
@@ -83,8 +199,8 @@
             function run() {
                 stopwatchEl.textContent = (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s) + ":" + (ms < 10 ? "0" + ms : ms);
                 ms++;
-                calculations = calculations + Cpp;
-                earth = earth + 1000000;
+                calculations = calculations + Math.trunc(Cpp / 60);
+                earth = earth + 760000;
                 planet.innerText = earth.toString();
                 currNum.innerText = calculations.toString();
                 if (ms === 100) {
@@ -95,7 +211,7 @@
                     s = 0;
                     m++;
                 }
-                if (s === 45 && ms === 60) {
+                if (s === 59 && ms === 99) {
                     clearInterval(timer);
                 }
             }
