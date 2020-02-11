@@ -56,7 +56,7 @@
             <div class="I-iii" id="I-iii"></div>
             <br>
             <div class="II-i" id="II-i">Our Moon was formed</div>
-            <div class="II-ii" i d="II-ii"></div>
+            <div class="II-ii" id="II-ii"></div>
             <div class="II-iii" id="II-iii"></div>
             <br>
             <div class="III-i" id="III-i">The oldest rock</div>
@@ -71,6 +71,8 @@
             <div class="V-ii" id="V-ii"></div>
             <div class="V-iii" id="V-iii"></div>
             <br>
+        </div>
+        <div class="subset" id="subset">
             <div class="VI-i" id="VI-i">Cambrian Explosion of Life</div>
             <div class="VI-ii" id="VI-ii"></div>
             <div class="VI-iii" id="VI-iii"></div>
@@ -106,7 +108,7 @@
         <script src="/__/firebase/init.js"></script>
     </body>
     <script>
-        let ms = 0, s = 0, m = 0, timer, calculations = 0, earth = 0;
+        let ms = 0, s = 0, m = 0, timer, calculations = 0, earth = 0, flag = 1;
         function fadersReady(){
             $("#earthAge").fadeOut();
             $("#calcs").fadeOut();
@@ -153,37 +155,11 @@
             $("#calcs").fadeIn();
             $("#calcsText").fadeIn();
             $("#earthText").fadeIn();
+            document.getElementById("I-ii").innerHTML = "Earth Years: " + earth.toString();
+            document.getElementById("I-iii").innerHTML = "Python Calculations: " + calculations.toString();
             $("#I-i").fadeIn();
             $("#I-ii").fadeIn();
             $("#I-iii").fadeIn();
-
-
-            $("#II-i").fadeIn();
-            $("#II-ii").fadeIn();
-            $("#III-i").fadeIn();
-            $("#III-ii").fadeIn();
-            $("#III-iii").fadeIn();
-            $("#IV-i").fadeIn();
-            $("#IV-ii").fadeIn();
-            $("#IV-iii").fadeIn();
-            $("#V-i").fadeIn();
-            $("#V-ii").fadeIn();
-            $("#V-iii").fadeIn();
-            $("#VI-i").fadeIn();
-            $("#VI-ii").fadeIn();
-            $("#VI-iii").fadeIn();
-            $("#VII-i").fadeIn();
-            $("#VII-ii").fadeIn();
-            $("#VII-iii").fadeIn();
-            $("#VIII-i").fadeIn();
-            $("#VIII-ii").fadeIn();
-            $("#VIII-iii").fadeIn();
-            $("#IX-i").fadeIn();
-            $("#IX-ii").fadeIn();
-            $("#IX-iii").fadeIn();
-            $("#X-i").fadeIn();
-            $("#X-ii").fadeIn();
-            $("#X-iii").fadeIn();
         }
         function executeStopwatch() {
             let stopwatchEl = document.querySelector('.stopwatch');
@@ -199,7 +175,7 @@
             function run() {
                 stopwatchEl.textContent = (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s) + ":" + (ms < 10 ? "0" + ms : ms);
                 ms++;
-                calculations = calculations + Math.trunc(Cpp / 60);
+                calculations = calculations + Math.trunc(Cpp / 100);
                 earth = earth + 760000;
                 planet.innerText = earth.toString();
                 currNum.innerText = calculations.toString();
@@ -213,6 +189,75 @@
                 }
                 if (s === 59 && ms === 99) {
                     clearInterval(timer);
+                    document.getElementById('X-ii').innerHTML = "Earth Years: " + (earth - 20).toString();
+                    document.getElementById('X-iii').innerHTML = "Python Calculations: " + (calculations - 2).toString();
+                    $("#X-i").fadeIn();
+                    $("#X-ii").fadeIn();
+                    $("#X-iii").fadeIn();
+                }
+                if (earth > 60000000 && flag === 1) {
+                    flag = 2;
+                    document.getElementById('II-ii').innerHTML = "Earth Years: " + earth.toString();
+                    document.getElementById('II-iii').innerHTML = "Python Calculations: " + calculations.toString();
+                    $("#II-i").fadeIn();
+                    $("#II-ii").fadeIn();
+                    $("#II-iii").fadeIn();
+                }
+                if (earth > 660000000 && flag === 2) {
+                    flag = 3;
+                    document.getElementById('III-ii').innerHTML = "Earth Years: " + earth.toString();
+                    document.getElementById('III-iii').innerHTML = "Python Calculations: " + calculations.toString();
+                    $("#III-i").fadeIn();
+                    $("#III-ii").fadeIn();
+                    $("#III-iii").fadeIn();
+                }
+                if (earth > 1056000000 && flag === 3) {
+                    flag = 4;
+                    document.getElementById('IV-ii').innerHTML = "Earth Years: " + earth.toString();
+                    document.getElementById('IV-iii').innerHTML = "Python Calculations: " + calculations.toString();
+                    $("#IV-i").fadeIn();
+                    $("#IV-ii").fadeIn();
+                    $("#IV-iii").fadeIn();
+                }
+                if (earth > 3660000000 && flag === 4) {
+                    flag = 5;
+                    document.getElementById('V-ii').innerHTML = "Earth Years: " + earth.toString();
+                    document.getElementById('V-iii').innerHTML = "Python Calculations: " + calculations.toString();
+                    $("#V-i").fadeIn();
+                    $("#V-ii").fadeIn();
+                    $("#V-iii").fadeIn();
+                }
+                if (earth > 4010000000 && flag === 5) {
+                    flag = 6;
+                    document.getElementById('VI-ii').innerHTML = "Earth Years: " + earth.toString();
+                    document.getElementById('VI-iii').innerHTML = "Python Calculations: " + calculations.toString();
+                    $("#VI-i").fadeIn();
+                    $("#VI-ii").fadeIn();
+                    $("#VI-iii").fadeIn();
+                }
+                if (earth > 4310000000 && flag === 6) {
+                    flag = 7;
+                    document.getElementById('VII-ii').innerHTML = "Earth Years: " + earth.toString();
+                    document.getElementById('VII-iii').innerHTML = "Python Calculations: " + calculations.toString();
+                    $("#VII-i").fadeIn();
+                    $("#VII-ii").fadeIn();
+                    $("#VII-iii").fadeIn();
+                }
+                if (earth > 4495000000 && flag === 7) {
+                    flag = 8;
+                    document.getElementById('VIII-ii').innerHTML = "Earth Years: " + earth.toString();
+                    document.getElementById('VIII-iii').innerHTML = "Python Calculations: " + calculations.toString();
+                    $("#VIII-i").fadeIn();
+                    $("#VIII-ii").fadeIn();
+                    $("#VIII-iii").fadeIn();
+                }
+                if (earth > 4555500000 && flag === 8) {
+                    flag = 9;
+                    document.getElementById('IX-ii').innerHTML = "Earth Years: " + earth.toString();
+                    document.getElementById('IX-iii').innerHTML = "Python Calculations: " + calculations.toString();
+                    $("#IX-i").fadeIn();
+                    $("#IX-ii").fadeIn();
+                    $("#IX-iii").fadeIn();
                 }
             }
         }
