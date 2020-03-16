@@ -1,5 +1,4 @@
 import flask
-import sqlite3
 import secondaries
 
 app = flask.Flask(__name__)
